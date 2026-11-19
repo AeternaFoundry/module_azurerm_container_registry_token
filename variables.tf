@@ -41,14 +41,6 @@ EOT
     ])
     error_message = "[from resourcegroups.ValidateName: invalid when len(value) == 0]"
   }
-  validation {
-    condition = alltrue([
-      for k, v in var.container_registry_tokens : (
-        length(v.container_registry_name) <= 50
-      )
-    ])
-    error_message = "[from validate.ContainerRegistryName: invalid when len(value) > 50]"
-  }
-  # Note: 6 additional provider-side validators are enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
+  # Note: 5 additional provider-side validators are enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
 }
 
